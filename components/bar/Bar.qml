@@ -48,6 +48,12 @@ Scope {
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
+                    BatteryWidget {
+                        id: battery
+
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
                     DateWidget {
                         id: date
 
@@ -59,13 +65,8 @@ Scope {
 
                         anchors.verticalCenter: parent.verticalCenter
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }
