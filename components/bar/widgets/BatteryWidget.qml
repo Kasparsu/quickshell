@@ -68,7 +68,4 @@ Rectangle {
             text: UPower.displayDevice.percentage * 100 + "%"
         }
     }
-    Component.onCompleted: {
-        console.log(JSON.stringify(UPower.displayDevice, null, 2));
-    }
 }
