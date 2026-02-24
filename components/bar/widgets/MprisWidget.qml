@@ -12,9 +12,10 @@ Rectangle {
     function getDeviceIcon(description) {
         let iconMap = {
             'Built-in Audio Analog Stereo': '󰽟',
-            'Galaxy Buds Live (1C8F)': ''
-        };
-        return iconMap[description] || '󰽟';
+            'Galaxy Buds Live (1C8F)': '',
+            'Arctis Nova Pro Analog Stereo': ''
+         };
+        return iconMap[description] || description;
     }
     width: container.width
 
@@ -28,10 +29,18 @@ Rectangle {
         leftPadding: 8
         rightPadding: 8
         spacing: 4
+        readonly property int activePlayer: Mpris.players.values.findIndex(p => p.isPlaying)
+        function activePlayerInfo() {
+            let activePlayer = Mpris.players.values.findIndex(p => p.isPlaying);
+            if(activePlayer !== -1) {
+                return Mpris.players.values[activePlayer].trackArtist + " - " + Mpris.players.values[activePlayer].trackTitle;
+            }
+            return '';
+        }
         Text {
             id: playbackStatusText
             color: theme.secondary
-            text: Mpris.players.values[0].trackArtist + " - " + Mpris.players.values[0].trackTitle
+            text: container.activePlayerInfo()
         }
         Text {
             id: deviceName
@@ -48,4 +57,21 @@ Rectangle {
             text: Math.round(Pipewire.defaultAudioSink.audio.volume * 100) + "%"
         }
     }
+    // Component.onCompleted: {
+    //     //console.log(Mpris.players.values.findIndex(p => p.isPlaying));
+    // }
+    //  Timer {
+    //   // 1000 milliseconds is 1 second
+    //   interval: 1000
+
+    //   // start the timer immediately
+    //   running: true
+
+    //   // run the timer again when it ends
+    //   repeat: true
+
+    //   // when the timer is triggered, set the running property of the
+    //   // process to true, which reruns it if stopped.
+    //   onTriggered: console.log(container.activePlayerInfo())
+    // }
 }
