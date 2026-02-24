@@ -10,7 +10,7 @@ Rectangle {
     height: 24
     width: container.width
     radius: height / 2
-
+    visible: UPower.displayDevice.powerSupply
     CrimsonNight {
         id: theme
     }
@@ -22,8 +22,11 @@ Rectangle {
         rightPadding: 8
         spacing: 4
         function icon() {
-            let value = Math.round(UPower.devices.values[0].percentage * 10) * 10;
-            let charging = UPower.devices.values[0].state === 1 ? 'charging_' : ''; // 1 means charging
+            if(!UPower.displayDevice.powerSupply) {
+                return '󱐥'
+            }
+            let value = Math.round(UPower.displayDevice.percentage * 10) * 10;
+            let charging = UPower.displayDevice.state === 1 ? 'charging_' : ''; // 1 means charging
             let icon = 'nf_md_battery_' + charging + value;
             let iconMap = {
                 'nf_md_battery_100': '󰁹',
@@ -62,7 +65,10 @@ Rectangle {
             id: percentage
             anchors.verticalCenter: parent.verticalCenter
             color: theme.primary
-            text: UPower.devices.values[0].percentage * 100 + "%"
+            text: UPower.displayDevice.percentage * 100 + "%"
         }
+    }
+    Component.onCompleted: {
+        console.log(JSON.stringify(UPower.displayDevice, null, 2));
     }
 }
