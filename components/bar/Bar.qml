@@ -27,7 +27,10 @@ Scope {
                 anchors.leftMargin: 8
                 screen: modelData.name
             }
-
+            MprisWidget {
+              id: mpris
+              anchors.horizontalCenter: parent.horizontalCenter
+            }
             Rectangle {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -41,9 +44,11 @@ Scope {
                     id: rightContainer
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
-
-                    MprisWidget {
-                        id: mpris
+                    NetworkWidget {
+                      id: network
+                    }
+                    VolumeWidget {
+                        id: volume
 
                         anchors.verticalCenter: parent.verticalCenter
                     }
