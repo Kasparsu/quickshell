@@ -62,7 +62,7 @@ Rectangle {
                         id: iconText
                         text: classGlyph !== "" ? classGlyph : (activeClass ? activeClass.charAt(0).toUpperCase() : "?")
                         color: (Number(modelData.id) === Hyprland.monitors.values.find(function(m){ return m.name === screen })?.activeWorkspace.id) ? 'black' : 'red'
-                        font.pixelSize: 12
+                        font.pixelSize: 16
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                     }
