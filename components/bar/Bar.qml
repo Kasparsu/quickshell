@@ -28,8 +28,8 @@ Scope {
                 screen: modelData.name
             }
             MprisWidget {
-              id: mpris
-              anchors.horizontalCenter: parent.horizontalCenter
+                id: mpris
+                anchors.horizontalCenter: parent.horizontalCenter
             }
             Rectangle {
                 anchors.right: parent.right
@@ -45,12 +45,7 @@ Scope {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     NetworkWidget {
-                      id: network
-                    }
-                    VolumeWidget {
-                        id: volume
-
-                        anchors.verticalCenter: parent.verticalCenter
+                        id: network
                     }
 
                     BatteryWidget {
@@ -58,7 +53,11 @@ Scope {
 
                         anchors.verticalCenter: parent.verticalCenter
                     }
+                    VolumeWidget {
+                        id: volume
 
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
                     DateWidget {
                         id: date
 
