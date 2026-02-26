@@ -1,15 +1,13 @@
-// ClockWidget.qml
 import QtQuick
-import Quickshell.Services.Pipewire
 import Quickshell.Services.Mpris
 import "../../../themes"
 
 Rectangle {
     color: theme.primary
-    visible: container.activePlayer > -1 
+    visible: container.activePlayer > -1
     height: 24
     radius: height / 2
-   
+
     width: container.width
 
     CrimsonNight {
@@ -25,7 +23,7 @@ Rectangle {
         readonly property int activePlayer: Mpris.players.values.findIndex(p => p.isPlaying)
         function activePlayerInfo() {
             let activePlayer = Mpris.players.values.findIndex(p => p.isPlaying);
-            if(activePlayer !== -1) {
+            if (activePlayer !== -1) {
                 return Mpris.players.values[activePlayer].trackArtist + " - " + Mpris.players.values[activePlayer].trackTitle;
             }
             return '';

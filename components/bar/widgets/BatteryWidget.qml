@@ -1,5 +1,3 @@
-import "../../../singletons"
-// ClockWidget.qml
 import QtQuick
 import Quickshell.Services.UPower
 import "../../../themes"
@@ -22,8 +20,8 @@ Rectangle {
         rightPadding: 8
         spacing: 4
         function icon() {
-            if(!UPower.displayDevice.powerSupply) {
-                return '󱐥'
+            if (!UPower.displayDevice.powerSupply) {
+                return '󱐥';
             }
             let value = Math.round(UPower.displayDevice.percentage * 10) * 10;
             let charging = UPower.displayDevice.state === 1 ? 'charging_' : ''; // 1 means charging
@@ -55,9 +53,9 @@ Rectangle {
             return iconMap[icon] || '󰁹'; // default to full battery if not found
         }
         Text {
+            id: icon
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 16
-            id: icon
             color: theme.primary
             text: container.icon()
         }
