@@ -1,5 +1,4 @@
 import "../../../themes"
-// ClockWidget.qml
 import QtQuick
 import Quickshell.Io
 

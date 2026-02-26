@@ -1,7 +1,7 @@
 // ClockWidget.qml
 import QtQuick
 import Quickshell.Services.Pipewire
-import Quickshell.Services.Mpris
+
 import "../../../themes"
 
 Rectangle {
@@ -13,8 +13,8 @@ Rectangle {
         let iconMap = {
             'Built-in Audio Analog Stereo': '󰽟',
             'Galaxy Buds Live (1C8F)': '',
-            'Arctis Nova Pro Analog Stereo': '',
-         };
+            'Arctis Nova Pro Analog Stereo': ''
+        };
         return iconMap[description] || description || '';
     }
     width: container.width

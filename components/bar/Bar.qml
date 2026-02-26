@@ -1,10 +1,13 @@
 import QtQuick
-// Bar.qml
 import Quickshell
-import Quickshell.Hyprland
 import "widgets"
+import "../../themes"
 
 Scope {
+
+    CrimsonNight {
+        id: theme
+    }
     Variants {
         model: Quickshell.screens
 
@@ -38,7 +41,7 @@ Scope {
                 width: rightContainer.width
                 height: 24
                 radius: height / 2
-                color: 'black'
+                color: theme.primary
 
                 Row {
                     id: rightContainer

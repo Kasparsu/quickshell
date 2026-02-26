@@ -1,7 +1,5 @@
 import "../../../singletons"
-// ClockWidget.qml
 import QtQuick
-
 import "../../../themes"
 
 Rectangle {
@@ -10,8 +8,10 @@ Rectangle {
     height: 24
     width: timeText.width + 16
     radius: height / 2
-    
-    CrimsonNight { id: theme }
+
+    CrimsonNight {
+        id: theme
+    }
     anchors.verticalCenter: parent.verticalCenter
     Text {
         id: timeText
@@ -19,5 +19,4 @@ Rectangle {
         color: theme.secondary
         text: Time.time
     }
-
 }
