@@ -6,7 +6,7 @@ import "../../../themes"
 
 Rectangle {
     color: theme.primary
-
+    visible: container.activePlayer > -1 
     height: 24
     radius: height / 2
    
