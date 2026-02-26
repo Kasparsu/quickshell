@@ -50,23 +50,19 @@ Scope {
 
                     BatteryWidget {
                         id: battery
-
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     VolumeWidget {
                         id: volume
-
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     DateWidget {
                         id: date
-
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
                     ClockWidget {
                         id: clock
-
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
