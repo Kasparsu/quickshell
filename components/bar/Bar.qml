@@ -2,7 +2,7 @@ import QtQuick
 import Quickshell
 import "widgets"
 import "../../themes"
-
+import Quickshell.Wayland
 Scope {
 
     CrimsonNight {
@@ -12,12 +12,18 @@ Scope {
         model: Quickshell.screens
 
         PanelWindow {
+
             required property var modelData
 
             screen: modelData
             implicitHeight: 30
             color: "transparent"
-
+            WlrLayershell.layer: WlrLayer.Bottom
+            Component.onCompleted: {
+    if (this.WlrLayershell != null) {
+      this.WlrLayershell.layer = WlrLayer.Bottom;
+    }
+  }
             anchors {
                 top: true
                 left: true
