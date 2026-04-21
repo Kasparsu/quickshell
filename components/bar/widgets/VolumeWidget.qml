@@ -13,7 +13,7 @@ Rectangle {
         let iconMap = {
             'Built-in Audio Analog Stereo': '󰽟',
             'Galaxy Buds Live (1C8F)': '',
-            'Arctis Nova Pro Analog Stereo': ''
+            'Arctis Nova Pro Pro': ''
         };
         return iconMap[description] || description || '';
     }
