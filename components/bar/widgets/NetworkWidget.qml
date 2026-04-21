@@ -63,16 +63,17 @@ Rectangle {
     Process {
         id: wifi
         running: false
-        command: ["sh", "-c", "nmcli -t -f IN-USE,SIGNAL,SSID,BARS device wifi| grep '*'"]
+        command: ["nmcli", "-t", "-f", "IN-USE,SIGNAL,SSID,BARS", "device", "wifi"]
 
         stdout: StdioCollector {
             onStreamFinished: {
-                let values = this.text.split(':').map(v => v.trim()).filter(v => v);
-                if (values.length) {
-                    let strength = 4 - (values[3].match(/_/g) || []).length;
+                let active = this.text.split('\n').filter(l => l.startsWith('*')).map(l => l.split(':').map(v => v.trim()))[0];
+                if (active) {
+                    let bars = active[3] || '';
+                    let strength = 4 - (bars.match(/_/g) || []).length;
                     let icons = ['󰤯', '󰤟', '󰤢', '󰤥', '󰤨'];
                     networkIcon.text = icons[strength];
-                    networkName.text = values[2];
+                    networkName.text = active[2];
                 } else {
                     networkIcon.text = '󰖪';
                     networkName.text = '';
