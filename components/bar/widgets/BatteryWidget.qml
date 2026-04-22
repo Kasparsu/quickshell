@@ -63,7 +63,7 @@ Rectangle {
             id: percentage
             anchors.verticalCenter: parent.verticalCenter
             color: theme.primary
-            text: UPower.displayDevice.percentage * 100 + "%"
+            text: Math.round(UPower.displayDevice.percentage * 100) + "%"
         }
     }
 }
